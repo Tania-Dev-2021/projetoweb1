@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+{% load meus_filtros %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <main class="container">
+    <form method="post">
+    {% csrf_token %}
+        <div class="form-group">
+            {{form.numero_pedido.errors}}
+            <label>Numero do Pedido:</label>
+            {{form.numero_pedido|addclass:'form-control'}}
+        </div>
+        <div class="form-group">
+            {{form.cliente.errors}}
+            <label>Cliente:</label>
+            {{form.cliente|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+             {{form.valor_pedido.errors}}
+            <label>Valor do Pedido:</label>
+            {{form.valor_pedido|addclass:'form-control'}}
+        </div>
+        <div class="form-group">
+             {{form.produto.errors}}
+            <label>Produto:</label>
+            {{form.produto|addclass:'form-control'}}
+        </div>
+        <div class="form-group">
+            {{form.status.errors}}
+           <label>Status:</label>
+           {{form.status|addclass:'form-control'}}
+       </div>
+       <div class="form-group">
+        {{form.quantidade_pedido.errors}}
+       <label>Quantidade Pedido:</label>
+       {{form.quantidade_pedido|addclass:'form-control'}}
+   </div>
+         <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
+    </main>
+</body>
+</html>

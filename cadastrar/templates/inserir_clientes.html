@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% load meus_filtros %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <main class="container">
+    <form method="post">
+    {% csrf_token %}
+        <div class="form-group">
+            {{form.nomec.errors}}
+            <label> Nome: </label>
+            {{form.nomec|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+             {{form.cpf.errors}}
+            <label>CPF:</label>
+            {{form.cpf|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+             {{form.endereco.errors}}
+            <label>Endereco:</label>
+            {{form.endereco|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+             {{form.tipo.errors}}
+            <label>Tipo:</label>
+            {{form.tipo|addclass:'form-control'}}
+        </div>
+
+         <div>
+            <input type="submit" name="Cadastrar">
+        </div>
+    </form>
+    </main>
+</body>
+</html>

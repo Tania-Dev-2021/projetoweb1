@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Listagem de cliente
+{% endblock titulo %}
+
+{% block conteudo %}
+<div class="card">
+    <div class="card-header">
+        Dados do cliente
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Nome: {{cliente.nomec}}</h5>
+        <h5 class="card-title">CPF {{cliente.cpf}}</h5>
+        <h5 class="card-title">Endereco: {{cliente.endereco}}</h5>
+        <h5 class="card-title">tipo: {{cliente.tipo}}</h5>
+    </div>
+</div>
+
+{% endblock %}

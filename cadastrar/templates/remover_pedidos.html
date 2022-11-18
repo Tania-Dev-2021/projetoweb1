@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Remover Pedido
+{% endblock titulo %}
+
+{% block conteudo %}
+<div class="card">
+    <div class="card-header">
+        Remover Pedido Abaixo???
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Numero Pedido: {{pedido.numero_pedido}}</h5>
+        <h5 class="card-title">Data Pedido: {{pedido.data_pedido}}</h5>
+        <h5 class="card-title">Valor Pedido: {{pedido.valor_pedido}}</h5>
+        <h5 class="card-title">Cliente: {{pedido.cliente}}</h5>
+        <h5 class="card-title">Produto: {{pedido.produto}}</h5>
+        <h5 class="card-title">Status: {{pedido.status}}</h5>
+        <h5 class="card-title">Quantidade: {{pedido.quantidade_pedido}}</h5>
+    </div>
+</div>
+    <form method="post">
+        {% csrf_token %}
+        <a href="{{request.META.HTTP_REFERER }}" class="btn btn-primary">Voltar</a>
+        <button class="btn btn-danger" type="submit">Remover</button>
+    </form>
+{% endblock %}

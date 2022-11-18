@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome:</th>
+            <th>Valor Produto:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in produtos %}
+        <tr>
+           <td><a href="{% url 'listar_produtos_id' i.id %}">{{i.nomep}}</a></td>
+           <td>{{i.valor_produto}}</td>
+            <td>
+                <a href="{% url 'editar_produto' i.id %}">Editar</a>
+                <a href="{% url 'remover_produto' i.id %}">Remover</a>
+            </td>
+           </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'inserir_produtos' %}"><button class="btn btn-primary">Cadastrar</button></a>
+</body>
+</html>

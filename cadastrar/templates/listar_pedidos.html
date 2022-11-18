@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Data do dPedido:</th>
+            <th>Valor do Pedido:</th>
+            <th>Cliente:</th>
+            <th>Produto:</th>
+            <th>Status:</th>
+            <th>Quantidade:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in pedido %}
+        <tr>
+            <td>{{i.numero_pedido}}</td>
+           <td>{{i.data_pedido}}</td>
+           <td>{{i.valor_pedido}}</td>
+           <td>{{i.cliente}}</td>
+           <td>{{i.produto}}</td>
+           <td>{{i.status}}</td>
+           <td>{{i.quantidade_pedido}}</td>
+           <td>
+            <td>
+                <a href="{% url 'editar_pedido' i.id %}">Editar</a>
+                <a href="{% url 'remover_pedido' i.id %}">Remover</a>
+            </td>
+           </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'inserir_pedidos' %}"><button class="btn btn-primary">Cadastrar</button></a>
+</body>
+</html>
