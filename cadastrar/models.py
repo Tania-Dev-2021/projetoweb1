@@ -32,9 +32,9 @@ class Dpedidos(models.Model):
     )
     numero_pedido=models.IntegerField()
     data_pedido=models.DateField(blank=True, null=True)
-    valor_pedido=models.FloatField()
     cliente=models.ForeignKey(Dclientes, on_delete=models.CASCADE)
     produto=models.ForeignKey(Dprodutos, on_delete=models.CASCADE)
+    valor_pedido=models.FloatField()
     status=models.CharField(max_length=2, choices=status_CHOICES)
     quantidade_pedido=models.IntegerField()
 
